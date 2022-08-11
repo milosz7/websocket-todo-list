@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist",
+    "noEmit": false,
+    "sourceMap": true,
+    "module": "es6",
+    "strict": true,
+    "target": "es5",
+    "moduleResolution": "node"
+  },
+  "exclude": ["../../build", "../client"],
+  "include": ["."]
+}
