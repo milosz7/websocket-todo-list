@@ -28,7 +28,7 @@ const App = () => {
   return (
     <TodosContext.Provider value={{todos, addTodo, removeTodo}}>
       <Container>
-        <h1>INIT project</h1>
+        <h1>To-do list</h1>
         <TodosList />
       </Container>
     </TodosContext.Provider>
