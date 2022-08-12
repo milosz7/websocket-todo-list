@@ -3,11 +3,10 @@ import { io } from 'socket.io-client';
 import { useEffect, useState } from 'react';
 import { todoData } from './types/types';
 import { TodosContext } from './context/TodosContext';
-
+import TodosList from './components/TodosList/TodosList';
 
 const SERVER_URL = 'http://localhost:8000';
 const socket = io(SERVER_URL);
-
 
 const App = () => {
   const [todos, setTodos] = useState<todoData[]>([]);
@@ -30,6 +29,7 @@ const App = () => {
     <TodosContext.Provider value={{todos, addTodo, removeTodo}}>
       <Container>
         <h1>INIT project</h1>
+        <TodosList />
       </Container>
     </TodosContext.Provider>
   );
