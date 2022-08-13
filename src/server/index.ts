@@ -43,5 +43,10 @@ io.on('connection', (socket) => {
     todos.push(newTodo);
     socket.broadcast.emit('getData', todos);
   });
+  socket.on('removeTodo', (todoToRemoveId) => {
+    const todoToRemove = todos.findIndex(todo => todo.id === todoToRemoveId);
+    todos.splice(todoToRemove, 1);
+    socket.broadcast.emit('getData', todos);
+  })
   console.log(socket.id)
 });

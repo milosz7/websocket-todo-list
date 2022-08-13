@@ -19,6 +19,7 @@ const App = () => {
 
   const removeTodo = (todoToRemoveId: string) => {
     setTodos(todos.filter(todo => todo.id !== todoToRemoveId));
+    socket.emit('removeTodo', todoToRemoveId);
   }
 
   return (
