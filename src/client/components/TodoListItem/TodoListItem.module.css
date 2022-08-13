@@ -1,6 +1,4 @@
 .item {
-  /* /* display: flex; */
-  /* justify-content: space-around; */
   align-items: center;
   position: relative;
   background-color: #fff;
@@ -27,6 +25,11 @@
   padding: 10px 15px;
   border-radius: 10px;
   color: #fff;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #14C38E;
 }
 
 .button:focus {
