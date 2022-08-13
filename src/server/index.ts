@@ -39,5 +39,9 @@ const io = new Server(server, {
 io.on('connection', (socket) => {
   console.log(todos)
   socket.emit('getData', todos);
+  socket.on('addTodo', (newTodo: todoData) => {
+    todos.push(newTodo);
+    socket.broadcast.emit('getData', todos);
+  });
   console.log(socket.id)
 });
