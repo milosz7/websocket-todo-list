@@ -11,6 +11,7 @@ const TodosList = () => {
   return (
     <ul className={styles.list}>
       {todos.map((todoData, idx) => <TodoListItem key={idx} {...todoData} />)}
+      {!todos.length && <h2 className={styles.noTodos}>Everything is done! Time to rest.</h2>}
       <div className={styles.layout}>
       <AddTodoForm />
       </div>

@@ -6,6 +6,7 @@
   padding: 20px;
   gap: 20px;
   background-color: #FFFDE3;
+  border: 2px solid #AFB4FF;
   border-radius: 10px;
   color: #2C3639;
 }
@@ -13,6 +14,16 @@
 .layout {
   text-align: center;
   grid-column: 1 / -1;
+}
+
+.noTodos {
+  margin-bottom: -15px;
+  padding-block: 15px;
+  box-shadow: 0px 3px 20px rgb(0 0 0 / 25%);
+  border: 2px solid #AFB4FF;
+  background-color: #fff;
+  border-radius: 10px;
+  grid-column: 2
 }
 
 @media screen and (max-width: 768px) {
