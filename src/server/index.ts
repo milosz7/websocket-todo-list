@@ -25,6 +25,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(buildDir, 'index.html'));
 });
 
+app.use((req, res) => {
+  const errorObject = {
+    message: 'Not found',
+    status: 404,
+  };
+  res.status(404);
+  res.send(errorObject)
+})
+
 const server = app.listen(port, () => {
   console.log(`running on port: ${port}.`);
 });
