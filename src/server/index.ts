@@ -53,8 +53,13 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('getData', todos);
   });
   socket.on('removeTodo', (todoToRemoveId) => {
-    const todoToRemove = todos.findIndex(todo => todo.id === todoToRemoveId);
-    todos.splice(todoToRemove, 1);
+    const todoToRemoveIdx = todos.findIndex(todo => todo.id === todoToRemoveId);
+    todos.splice(todoToRemoveIdx, 1);
+    socket.broadcast.emit('getData', todos);
+  });
+  socket.on('editTodo', (editedTodo: todoData) => {
+    const todoToEditIdx = todos.findIndex(todo => todo.id === editedTodo.id);
+    todos[todoToEditIdx] = editedTodo;
     socket.broadcast.emit('getData', todos);
   })
   console.log(socket.id)
