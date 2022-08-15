@@ -39,14 +39,6 @@
   outline: none;
 }
 
-.error {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #D61C4E;
-}
-
 @media screen and (max-width: 576px) {
   .form {
     padding-top: 10px;
