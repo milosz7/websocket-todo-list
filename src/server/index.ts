@@ -46,7 +46,6 @@ const io = new Server(server, {
 });
 
 io.on('connection', (socket) => {
-  console.log(todos)
   socket.emit('getData', todos);
   socket.on('addTodo', (newTodo: todoData) => {
     todos.push(newTodo);
@@ -61,6 +60,5 @@ io.on('connection', (socket) => {
     const todoToEditIdx = todos.findIndex(todo => todo.id === editedTodo.id);
     todos[todoToEditIdx] = editedTodo;
     socket.broadcast.emit('getData', todos);
-  })
-  console.log(socket.id)
+  });
 });
