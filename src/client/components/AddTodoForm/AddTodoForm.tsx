@@ -4,11 +4,11 @@ import { todoContext } from '../../types/types';
 import shortid from 'shortid';
 import styles from './AddTodoForm.module.css';
 import TaskInput from '../TaskInput/TaskInput';
+import { toast } from 'react-toastify';
 
 const AddTodoForm = () => {
   const { addTodo } = useContext(TodosContext) as todoContext;
   const [todoText, setTodoText] = useState('');
-  const [error, setError] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,12 +17,18 @@ const AddTodoForm = () => {
         id: shortid(),
         task: todoText,
       };
-      setError(false);
       addTodo(newTodo);
       setTodoText('');
     }
     if (!todoText) {
-      setError(true);
+      toast.error('Field cannot be empty if you want to add a new task.', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      })
     }
   };
 
@@ -37,7 +43,6 @@ const AddTodoForm = () => {
       <button className={styles.button} type="submit">
         Add
       </button>
-      {error && <small className={styles.error}>Please enter any valid value!</small>}
     </form>
   );
 };

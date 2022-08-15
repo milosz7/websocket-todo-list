@@ -4,6 +4,7 @@ import { todoContext } from '../../types/types';
 import styles from './TodoListItem.module.css';
 import { useState } from 'react';
 import TaskInput from '../TaskInput/TaskInput';
+import { toast } from 'react-toastify'
 
 const TodoListItem = ({ id, task }: { id: string; task: string }) => {
   const { removeTodo, editTodo } = useContext(TodosContext) as todoContext;
@@ -19,6 +20,15 @@ const TodoListItem = ({ id, task }: { id: string; task: string }) => {
       editTodo(editedTodo);
       setIsEditing(false);
       setNewValue('');
+    } else {
+      toast.error('Field cannot be empty if you want to edit data.', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      })
     }
   };
 

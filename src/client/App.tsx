@@ -5,6 +5,8 @@ import { TodosContext } from './context/TodosContext';
 import TodosList from './components/TodosList/TodosList';
 import { socket } from './client-socket';
 import Spinner from './components/Spinner/Spinner';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [todos, setTodos] = useState<todoData[]>([]);
@@ -49,6 +51,7 @@ const App = () => {
 
   return (
     <TodosContext.Provider value={{ todos, addTodo, removeTodo, editTodo }}>
+      <ToastContainer />
       <Container>
         {isConnecting &&
           <>
