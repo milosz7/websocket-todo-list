@@ -21,6 +21,7 @@ const App = () => {
         }
         if (socket.connected) {
           setIsConnecting(false);
+          setSocketTimeout(null);
         }
       }, 1000));
     }
