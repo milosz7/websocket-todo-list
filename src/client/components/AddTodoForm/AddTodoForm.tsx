@@ -3,6 +3,7 @@ import { TodosContext } from '../../context/TodosContext';
 import { todoContext } from '../../types/types';
 import shortid from 'shortid';
 import styles from './AddTodoForm.module.css';
+import TaskInput from '../TaskInput/TaskInput';
 
 const AddTodoForm = () => {
   const { addTodo } = useContext(TodosContext) as todoContext;
@@ -28,15 +29,14 @@ const AddTodoForm = () => {
   return (
     <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
       <h2 className={styles.heading}>Add a task</h2>
-      <input
-        className={styles.input}
+      <TaskInput
         onChange={(e) => setTodoText(e.target.value)}
-        value={todoText}
-        type="text"
-        autoComplete="off"
         placeholder="What do we have to do?"
+        value={todoText}
       />
-      <button className={styles.button} type="submit">Add</button>
+      <button className={styles.button} type="submit">
+        Add
+      </button>
       {error && <small className={styles.error}>Please enter any valid value!</small>}
     </form>
   );
