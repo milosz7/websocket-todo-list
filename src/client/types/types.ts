@@ -7,4 +7,5 @@ export interface todoContext {
   todos: todoData[];
   addTodo: (newTodo: todoData) => void;
   removeTodo: (todoToRemoveId: string) => void;
+  editTodo: (editedTodo: todoData) => void;
 }

@@ -42,8 +42,13 @@ const App = () => {
     socket.emit('removeTodo', todoToRemoveId);
   };
 
+  const editTodo = (editedTodo: todoData) => {
+    setTodos(todos.map(todo => todo.id === editedTodo.id ? editedTodo : todo));
+    socket.emit('editTodo', editedTodo)
+  };
+
   return (
-    <TodosContext.Provider value={{ todos, addTodo, removeTodo }}>
+    <TodosContext.Provider value={{ todos, addTodo, removeTodo, editTodo }}>
       <Container>
         {isConnecting &&
           <>
