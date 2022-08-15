@@ -17,7 +17,8 @@ const TodoListItem = ({ id, task }: { id: string; task: string }) => {
         task: newValue,
       };
       editTodo(editedTodo);
-      setIsEditing(false)
+      setIsEditing(false);
+      setNewValue('');
     }
   };
 
