@@ -6,11 +6,11 @@ import styles from './TodosList.module.css';
 import AddTodoForm from "../AddTodoForm/AddTodoForm";
 
 const TodosList = () => {
-  const { todos } = useContext(TodosContext) as todoContext;
+  const { todos, removeTodo, editTodo } = useContext(TodosContext) as todoContext;
 
   return (
     <ul className={styles.list}>
-      {todos.map((todoData, idx) => <TodoListItem key={idx} {...todoData} />)}
+      {todos.map((todoData) => <TodoListItem key={todoData.id} removeTodo={removeTodo} editTodo={editTodo} {...todoData} />)}
       {!todos.length && <h2 className={styles.noTodos}>Everything is done! Time to rest.</h2>}
       <div className={styles.layout}>
       <AddTodoForm />
